@@ -2,7 +2,8 @@
 #include <string>
 using namespace std;
 
-struct Course{
+struct Course
+{
 	string Code;
 	string Name;
 	int CHs;
@@ -10,7 +11,8 @@ struct Course{
 	Course* next;
 };
 
-bool isEmpty(Course* path){
+bool isEmpty(Course* path)
+{
 	if (!path)
 	{
 		cout << "No Academic Path specified!\n";
@@ -19,7 +21,8 @@ bool isEmpty(Course* path){
 	return false;
 }
 
-void createAcademicPath(Course*& path, int& total){
+void createAcademicPath(Course*& path, int& total)
+{
 	cout << "How many courses do you have: ";
 	cin >> total;
 	Course* tail = nullptr;
@@ -49,7 +52,8 @@ void createAcademicPath(Course*& path, int& total){
 	}
 }
 
-void markCourseStatus(Course* path){
+void markCourseStatus(Course* path)
+{
 	if (isEmpty(path)) return;
 	string code;
 	cout << "Enter Course Code for editing course status: ";
@@ -70,7 +74,8 @@ void markCourseStatus(Course* path){
 	cout << "Course is marked completed!\n";
 }
 
-void findEligibleCourse(Course* path){
+void findEligibleCourse(Course* path)
+{
 	if (isEmpty(path)) return;
 	Course* temp = path;
 	while (temp && temp->status) temp = temp->next;
@@ -83,7 +88,8 @@ void findEligibleCourse(Course* path){
 	cout << temp->Code << " - " << temp->Name << "\n";
 }
 
-void checkProgress(Course* path){
+void checkProgress(Course* path)
+{
 	if (isEmpty(path)) return;
 	int completed = 0, total = 0;
 	Course* temp = path;
@@ -100,17 +106,19 @@ void checkProgress(Course* path){
 	printf("Progress: %.0f%%\n", progress);
 }
 
-void displayPath(Course* path){
+void displayPath(Course* path)
+{
 	if (isEmpty(path)) return;
 	Course* temp = path;
-	while(temp)
+	while (temp)
 	{
-		printf("%-6s -> %-35s %s\n", temp->Code.c_str(), temp->Name.c_str(), temp->status ? "Completed" : "Not Completed");
+		cout << temp->Code << " -> " << temp->Name << " -> " << (temp->status ? "Completed" : "Not Completed") << "\n";
 		temp = temp->next;
 	}
 }
 
-void checkGraduation(Course* path){
+void checkGraduation(Course* path)
+{
 	if (isEmpty(path)) return;
 	int remaining = 0;
 	Course* temp = path;
@@ -131,7 +139,8 @@ void checkGraduation(Course* path){
 	}
 }
 
-int main(){
+int main()
+{
 	Course* path = nullptr;
 	int total = 0;
 	bool running = true;
