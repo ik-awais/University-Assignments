@@ -2,7 +2,7 @@
 #define Q1_H
 
 #ifndef ROLL_N
-#define ROLL_N 3207
+#define ROLL_N 3012
 #endif
 #define P1 (((ROLL_N) % 4) + 3)
 #define P2 (((ROLL_N) % 3) + 2)
