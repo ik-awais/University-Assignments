@@ -9,7 +9,7 @@ public:
 		next=NULL;
 	}
 };
-class Stack{
+class Stack {
 	Node *top;
 	int limit;
 	int length;
@@ -104,3 +104,6 @@ int main(){
 	else cout<<"Not Balanced"<<endl;
 return 0;
 }
+
+//({[]})
+//({[}])
