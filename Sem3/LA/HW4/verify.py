@@ -1,8 +1,5 @@
 import sympy as sp
 
-# ---------------------------------------------------------------
-# 1. Define A
-# ---------------------------------------------------------------
 A = sp.Matrix([
     [ 1, -1,  2,  0,  3],
     [-2,  2, -4,  1, -5],
@@ -14,9 +11,6 @@ print("Matrix A:")
 sp.pprint(A)
 print()
 
-# ---------------------------------------------------------------
-# 2. RREF and pivot columns  (part i)
-# ---------------------------------------------------------------
 rref_matrix, pivot_columns = A.rref()
 print("RREF of A:")
 sp.pprint(rref_matrix)
@@ -26,47 +20,30 @@ rank_A = A.rank()
 print(f"rank(A) = {rank_A}")
 print()
 
-# ---------------------------------------------------------------
-# 3. Basis for Col(A)  (part ii)
-#    IMPORTANT: sympy's .columnspace() correctly pulls pivot columns
-#    from the ORIGINAL matrix, not the RREF -- exactly as required.
-# ---------------------------------------------------------------
 col_space = A.columnspace()
 print("Basis for Col(A):")
 for vec in col_space:
     sp.pprint(vec.T)
 print()
 
-# ---------------------------------------------------------------
-# 4. Basis for Row(A)  (part iii)
-# ---------------------------------------------------------------
 row_space = A.rowspace()
 print("Basis for Row(A):")
 for vec in row_space:
     sp.pprint(vec)
 print()
 
-# ---------------------------------------------------------------
-# 5. Basis for Nul(A)  (part iv)
-# ---------------------------------------------------------------
 null_space = A.nullspace()
 print("Basis for Nul(A):")
 for vec in null_space:
     sp.pprint(vec.T)
 print()
 
-# ---------------------------------------------------------------
-# 6. Basis for Nul(A^T), i.e. the left null space  (part v)
-# ---------------------------------------------------------------
 left_null_space = A.T.nullspace()
 print("Basis for Nul(A^T)  (left null space):")
 for vec in left_null_space:
     sp.pprint(vec.T)
 print()
 
-# ---------------------------------------------------------------
-# 7. Verify the Fundamental Theorem of Linear Algebra  (part vi)
-# ---------------------------------------------------------------
 m, n = A.shape
 r = rank_A
 dim_col   = len(col_space)
@@ -83,10 +60,6 @@ assert dim_col + dim_null == n, "Rank-Nullity theorem failed for Col/Nul(A)!"
 assert dim_row + dim_lnull == m, "Rank-Nullity theorem failed for Row/Nul(A^T)!"
 print("Both identities verified. ✓")
 
-# ---------------------------------------------------------------
-# 8. Sanity check: every null-space / left-null-space vector
-#    actually satisfies its defining equation.
-# ---------------------------------------------------------------
 print()
 print("--- Verification ---")
 for v in null_space:
