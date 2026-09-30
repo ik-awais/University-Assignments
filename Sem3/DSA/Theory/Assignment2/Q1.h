@@ -8,11 +8,8 @@ using namespace std;
 
 #define MAX_FUNCTIONS 50
 #define MAX_TOP_CALLS 50
-#define ALIGNMENT 4
+#define ALIGNMENT 4 
 
-// One nested-call position inside a function body
-// Plain call     -> isTernary = false, first holds the function name
-// Ternary call   -> isTernary = true, condition decides between first and second
 struct NestedCall {
     bool isTernary;
     bool condition;
