@@ -3,6 +3,7 @@ struct PacketNode {
     PacketNode* next;
     PacketNode(int data = 0) : data(data), next(nullptr) {}
 };
+
 PacketNode* reverseKGroup(PacketNode* head, int k) {
     if (!head || k <= 1) return head;
     PacketNode* current = head;

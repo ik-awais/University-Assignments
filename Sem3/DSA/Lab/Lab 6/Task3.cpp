@@ -3,6 +3,7 @@ struct NetworkNode{
 	NetworkNode* next;
 	NetworkNode(int nodeID=0) : nodeID(nodeID), next(nullptr){}
 };
+
 int findSurvivor(NetworkNode*& tail, int k) {
     if (!tail || k <= 0) return -1;
     NetworkNode* current = tail->next;
