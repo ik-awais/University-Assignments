@@ -6,9 +6,6 @@ using namespace std;
 #ifndef Q1_H
 #define Q1_H
 
-#define MAX_FUNCTIONS 50
-#define MAX_TOP_CALLS 50
-#define ALIGNMENT 4 
 
 struct NestedCall {
     bool isTernary;

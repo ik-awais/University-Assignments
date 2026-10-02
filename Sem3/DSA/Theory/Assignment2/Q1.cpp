@@ -18,7 +18,7 @@ bool isBlankLine(const string& s) {
 }
 // Smallest multiple of 4 that is >= requested
 long long alignMemory(long long requested) {
-    return ((requested + ALIGNMENT - 1) / ALIGNMENT) * ALIGNMENT;
+    return ((requested + 4 - 1) / 4) * 4;
 }
 
 bool readNumber(const string& text, int& pos, long long& number) {
@@ -539,14 +539,14 @@ void processTestCase(const string* lines, int lineCount, int caseNumber) {
         return;
     }
     bool valid = true;
-    if (n < 1 || n > MAX_FUNCTIONS) 
+    if (n < 1 || n > 50) 
     {
-        cout << "Error: Number of definitions must be between 1 and " << MAX_FUNCTIONS << "\n";
+        cout << "Error: Number of definitions must be between 1 and " << 50 << "\n";
         valid = false;
     }
-    if (m < 1 || m > MAX_TOP_CALLS) 
+    if (m < 1 || m > 50) 
     {
-        cout << "Error: Number of top-level calls must be between 1 and " << MAX_TOP_CALLS << "\n";
+        cout << "Error: Number of top-level calls must be between 1 and " << 50 << "\n";
         valid = false;
     }
     if (s < 1) 
